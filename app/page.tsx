@@ -18,10 +18,10 @@ const content = {
     navContact: "Contact",
     stats: [
       { label: "Coverage", value: "Iran + 25+ countries" },
-      { label: "Uplinks", value: "10G backbone" },
+      { label: "Uplinks", value: "25G backbone" },
       { label: "Hardware", value: "FortiGate + HPE G10" },
     ],
-    whyTitle: "Why organizations choose NarenjCloud",
+    whyTitle: "Why organizations choose us",
     feature1Title: "Next-Generation Firewall Security",
     feature1Text: "Security-first architecture for critical workloads, routed environments, and protected traffic flows.",
     feature2Title: "Enterprise Switching Infrastructure",
@@ -86,7 +86,7 @@ const content = {
       { label: "Уплинки", value: "10G магистраль" },
       { label: "Оборудование", value: "FortiGate + HPE G10" },
     ],
-    whyTitle: "Почему компании выбирают NarenjCloud",
+    whyTitle: "Почему компании выбирают нас",
     feature1Title: "Современная защитa сети",
     feature1Text: "Архитектура с акцентом на безопасность для критически важных нагрузок, маршрутизации и защищённого трафика.",
     feature2Title: "Корпоративная коммутация",
@@ -151,7 +151,7 @@ const content = {
       { label: "链路能力", value: "10G 骨干网络" },
       { label: "硬件平台", value: "FortiGate + HPE G10" },
     ],
-    whyTitle: "为何企业选择 NarenjCloud",
+    whyTitle: "为何企业选择我们",
     feature1Title: "下一代防火墙安全",
     feature1Text: "面向关键业务与网络路由场景的安全优先架构。",
     feature2Title: "企业级交换基础设施",
@@ -381,6 +381,10 @@ export default function Home() {
                   <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature4Title}</p>
                   <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature4Text}</p>
                 </div>
+                <div className={`rounded-[16px] border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                  <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature5Title}</p>
+                  <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature5Text}</p>
+                </div>
               </div>
             </div>
           </section>
@@ -451,7 +455,7 @@ export default function Home() {
               </a>
             </div>
             <div className={`mt-6 border-t pt-4 text-sm ${isLight ? "border-slate-200 text-slate-600" : "border-white/10 text-slate-400"}`}>
-              CEO: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a>
+              Founder & Creator: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a>
             </div>
           </section>
         </main>
