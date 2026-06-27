@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Language = "en" | "ru";
+type Language = "en" | "ru" | "zh";
 type Theme = "dark" | "light";
 
 const content = {
@@ -28,6 +28,8 @@ const content = {
     feature2Text: "High-capacity connectivity with strong throughput for demanding services.",
     feature3Title: "Dedicated HPE options",
     feature3Text: "Flexible server choices for customers who need more control and power.",
+    feature4Title: "Cisco switches",
+    feature4Text: "Cisco Nexus and other data-center-grade switching solutions for high-density networking.",
     servicesTitle: "Infrastructure that moves with your business.",
     services: [
       {
@@ -60,6 +62,7 @@ const content = {
       { name: "Russia", note: "Strong infrastructure presence with reliable connectivity." },
       { name: "UAE", note: "Regional expansion for international reach." },
       { name: "Netherlands", note: "Strategic gateway for global traffic and links." },
+      { name: "China", note: "A new office is planned to launch soon." },
     ],
     contactTitle: "Contact",
     email: "Email",
@@ -88,6 +91,8 @@ const content = {
     feature2Text: "Высокопроизводительная связность для требовательных сервисов и трафика.",
     feature3Title: "Dedicated HPE серверы",
     feature3Text: "Гибкие решения на базе HPE для нагрузок, которым нужен больший контроль и мощность.",
+    feature4Title: "Коммутаторы Cisco",
+    feature4Text: "Cisco Nexus и другие корпоративные решения для дата-центрической инфраструктуры.",
     servicesTitle: "Инфраструктура, которая движется вместе с вашим бизнесом.",
     services: [
       {
@@ -120,11 +125,71 @@ const content = {
       { name: "Россия", note: "Сильное присутствие и надёжная инфраструктура." },
       { name: "ОАЭ", note: "Региональное развитие для международного охвата." },
       { name: "Нидерланды", note: "Стратегический узел для глобального трафика и связности." },
+      { name: "Китай", note: "Новый офис будет открыт в ближайшее время." },
     ],
     contactTitle: "Контакты",
     email: "Email",
     call: "Телефон",
     console: "Консоль",
+  },
+  zh: {
+    badge: "云基础设施 • 伊朗及 25+ 个国家",
+    title: "为现代网络构建安全可靠的云与连接方案。",
+    description:
+      "NarenjCloud 提供稳定的云服务器、站点间私有网络连接以及全球链路服务，底层依托 FortiGate 防火墙与 HPE G10 系统构建强大基础设施。",
+    ctaPrimary: "进入控制台",
+    ctaSecondary: "查看服务",
+    navServices: "服务",
+    navAbout: "关于我们",
+    navContact: "联系我们",
+    stats: [
+      { label: "覆盖范围", value: "伊朗 + 25+ 国家" },
+      { label: "链路能力", value: "10G 骨干网络" },
+      { label: "硬件平台", value: "FortiGate + HPE G10" },
+    ],
+    whyTitle: "为何客户选择我们",
+    feature1Title: "FortiGate 防火墙",
+    feature1Text: "面向关键业务与网络路由场景的安全优先架构。",
+    feature2Title: "10G 上联链路",
+    feature2Text: "高容量连接，满足高吞吐和高要求业务场景。",
+    feature3Title: "HPE G10 服务器",
+    feature3Text: "灵活的企业级 HPE 服务器方案，提供更高控制力和性能。",
+    feature4Title: "Cisco 交换机",
+    feature4Text: "Cisco Nexus 及其他数据中心级交换机方案，支撑高密度网络环境。",
+    servicesTitle: "与业务同步发展的基础设施。",
+    services: [
+      {
+        title: "云服务器",
+        description: "在伊朗及全球多个区域提供可靠的云基础设施，兼顾稳定性与性能。",
+      },
+      {
+        title: "Narenj Mesh",
+        description: "即使没有静态 IP，也能连接多个站点和 MikroTik 设备，轻松搭建私有路由。",
+      },
+      {
+        title: "Narenj Link",
+        description: "为全球任意目标地点提供安全连接，适用于分支机构与国际业务场景。",
+      },
+      {
+        title: "专用 HPE 服务器",
+        description: "为需要更高控制力与算力的场景提供企业级 HPE 专用硬件。",
+      },
+    ],
+    aboutTitle: "由深谙网络的团队打造。",
+    aboutText:
+      "NarenjCloud 起源于三位志同道合的朋友多年来共同工作所积累的经验。如今，他们正在将这份经验转化为一个专注于可靠基础设施、智能连接与实用服务的公司。",
+    locationsTitle: "核心节点",
+    locations: [
+      { name: "伊朗（总部）", note: "总部与区域运营中心。" },
+      { name: "俄罗斯", note: "强大的基础设施与稳定连接能力。" },
+      { name: "阿联酋", note: "面向国际业务扩展的区域节点。" },
+      { name: "荷兰", note: "连接全球流量与跨境链路的战略节点。" },
+      { name: "中国", note: "新的办公地点即将启动。" },
+    ],
+    contactTitle: "联系方式",
+    email: "邮箱",
+    call: "电话",
+    console: "控制台",
   },
 };
 
@@ -138,7 +203,7 @@ export default function Home() {
     if (storedTheme === "light" || storedTheme === "dark") {
       setTheme(storedTheme);
     }
-    if (storedLanguage === "en" || storedLanguage === "ru") {
+    if (storedLanguage === "en" || storedLanguage === "ru" || storedLanguage === "zh") {
       setLanguage(storedLanguage);
     }
   }, []);
@@ -182,7 +247,7 @@ export default function Home() {
 
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
         <header
-          className={`glass-card mb-8 flex flex-col gap-4 rounded-[999px] px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between ${
+          className={`glass-card mb-8 flex flex-col gap-4 rounded-[20px] px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between ${
             isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"
           }`}
         >
@@ -201,23 +266,31 @@ export default function Home() {
             </a>
           </nav>
           <div className="flex flex-wrap items-center gap-2">
-            <select
-              aria-label="Select language"
-              value={language}
-              onChange={(event) => setLanguage(event.target.value as Language)}
-              className={`rounded-full border px-3 py-2 text-sm outline-none ${
-                isLight
-                  ? "border-orange-200 bg-white text-slate-800"
-                  : "border-white/15 bg-slate-900/70 text-slate-100"
-              }`}
-            >
-              <option value="en">EN</option>
-              <option value="ru">RU</option>
-            </select>
+            <div className={`inline-flex items-center gap-1 rounded-[14px] border p-1 ${isLight ? "border-orange-200 bg-orange-50" : "border-white/10 bg-slate-900/70"}`}>
+              {(["en", "ru", "zh"] as Language[]).map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={language === value}
+                  onClick={() => setLanguage(value)}
+                  className={`rounded-[10px] px-3 py-2 text-sm font-semibold transition ${
+                    language === value
+                      ? isLight
+                        ? "bg-orange-500 text-white shadow-sm"
+                        : "bg-orange-500/90 text-white"
+                      : isLight
+                        ? "text-slate-700 hover:bg-white"
+                        : "text-slate-300 hover:bg-white/10"
+                  }`}
+                >
+                  {value.toUpperCase()}
+                </button>
+              ))}
+            </div>
             <button
               type="button"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={`rounded-full border px-3 py-2 text-sm font-medium transition ${
+              className={`rounded-[14px] border px-3 py-2 text-sm font-medium transition ${
                 isLight
                   ? "border-orange-200 bg-orange-50 text-orange-700 hover:bg-orange-100"
                   : "border-orange-400/30 bg-orange-500/10 text-orange-200 hover:bg-orange-500/20"
@@ -227,7 +300,7 @@ export default function Home() {
             </button>
             <a
               href="https://console.narenj.cloud"
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`rounded-[14px] border px-4 py-2 text-sm font-medium transition ${
                 isLight
                   ? "border-orange-300 bg-orange-500/10 text-orange-700 hover:bg-orange-500/20"
                   : "border-orange-400/40 bg-orange-500/10 text-orange-200 hover:bg-orange-500/20"
@@ -241,7 +314,7 @@ export default function Home() {
         <main id="top" className="flex-1 space-y-8 pb-10">
           <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div
-              className={`glass-card rounded-[32px] p-8 sm:p-10 lg:p-12 ${
+              className={`glass-card rounded-[24px] p-8 sm:p-10 lg:p-12 ${
                 isLight ? "border-orange-200/70 bg-white/70 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"
               }`}
             >
@@ -281,22 +354,26 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/70 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+            <div className={`glass-card rounded-[24px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/70 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
                 {t.whyTitle}
               </p>
               <div className="mt-6 space-y-4">
-                <div className={`rounded-2xl border p-4 ${isLight ? "border-orange-200 bg-orange-50/80" : "border-orange-400/20 bg-orange-500/10"}`}>
+                <div className={`rounded-[16px] border p-4 ${isLight ? "border-orange-200 bg-orange-50/80" : "border-orange-400/20 bg-orange-500/10"}`}>
                   <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature1Title}</p>
                   <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature1Text}</p>
                 </div>
-                <div className={`rounded-2xl border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                <div className={`rounded-[16px] border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
                   <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature2Title}</p>
                   <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature2Text}</p>
                 </div>
-                <div className={`rounded-2xl border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                <div className={`rounded-[16px] border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
                   <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature3Title}</p>
                   <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature3Text}</p>
+                </div>
+                <div className={`rounded-[16px] border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                  <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature4Title}</p>
+                  <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature4Text}</p>
                 </div>
               </div>
             </div>
@@ -316,7 +393,7 @@ export default function Home() {
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {t.services.map((service) => (
-                <article key={service.title} className={`glass-card rounded-[24px] p-6 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+                <article key={service.title} className={`glass-card rounded-[20px] p-6 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
                   <h3 className={`text-xl font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{service.title}</h3>
                   <p className={`mt-3 text-sm leading-7 ${isLight ? "text-slate-700" : "text-slate-300"}`}>{service.description}</p>
                 </article>
@@ -335,7 +412,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+            <div className={`glass-card rounded-[24px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">{t.locationsTitle}</p>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {t.locations.map((location) => (
@@ -348,7 +425,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="contact" className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+          <section id="contact" className={`glass-card rounded-[24px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">{t.contactTitle}</p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               <a href="mailto:info@narenj.cloud" className={`block rounded-2xl border p-4 transition ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100" : "border-white/10 bg-white/5 hover:bg-white/10"}`}>
