@@ -38,16 +38,19 @@ const content = {
         title: "Cloud Servers",
         description:
           "Reliable cloud infrastructure in Iran and global regions, designed for performance and stability.",
+        href: "/cloud-servers",
       },
       {
         title: "Narenj Mesh",
         description:
           "Connect multiple sites and MikroTik routers even without static IPs and build private routes with ease.",
+        href: "/narenj-mesh",
       },
       {
         title: "Narenj Link",
         description:
           "Create secure connectivity to any location in the world, from regional branches to international offices.",
+        href: "/narenj-link",
       },
       {
         title: "Dedicated HPE Servers",
@@ -103,16 +106,19 @@ const content = {
         title: "Облачные серверы",
         description:
           "Надёжная облачная инфраструктура в Иране и в международных регионах с акцентом на стабильность.",
+        href: "/cloud-servers",
       },
       {
         title: "Narenj Mesh",
         description:
           "Подключайте несколько площадок и MikroTik даже без статических IP и строите частные маршруты без лишних сложностей.",
+        href: "/narenj-mesh",
       },
       {
         title: "Narenj Link",
         description:
           "Создавайте безопасное соединение с любым нужным вам местом в мире — от филиалов до международных офисов.",
+        href: "/narenj-link",
       },
       {
         title: "Выделенные серверы HPE",
@@ -167,14 +173,17 @@ const content = {
       {
         title: "云服务器",
         description: "在伊朗及全球多个区域提供可靠的云基础设施，兼顾稳定性与性能。",
+        href: "/cloud-servers",
       },
       {
         title: "Narenj Mesh",
         description: "即使没有静态 IP，也能连接多个站点和 MikroTik 设备，轻松搭建私有路由。",
+        href: "/narenj-mesh",
       },
       {
         title: "Narenj Link",
         description: "为全球任意目标地点提供安全连接，适用于分支机构与国际业务场景。",
+        href: "/narenj-link",
       },
       {
         title: "专用 HPE 服务器",
@@ -403,10 +412,10 @@ export default function Home() {
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {t.services.map((service) => (
-                <article key={service.title} className={`glass-card rounded-[20px] p-6 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+                <a key={service.title} href={service.href} className={`glass-card rounded-[20px] p-6 transition hover:border-orange-400 hover:shadow-lg ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
                   <h3 className={`text-xl font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{service.title}</h3>
                   <p className={`mt-3 text-sm leading-7 ${isLight ? "text-slate-700" : "text-slate-300"}`}>{service.description}</p>
-                </article>
+                </a>
               ))}
             </div>
           </section>

@@ -145,26 +145,7 @@ const content = {
       },
     ],
 
-    // Pricing section
-    pricingTitle: "Flexible Pricing",
-    pricingDescription: "Pay per endpoint per month. Scale as you grow.",
-    pricingTiers: [
-      {
-        name: "Small Business",
-        sites: "2-5 sites",
-        features: ["2-5 endpoints", "100Mbps per link", "Basic monitoring"],
-      },
-      {
-        name: "Growth",
-        sites: "6-20 sites",
-        features: ["6-20 endpoints", "1Gbps per link", "Advanced monitoring", "Priority support"],
-      },
-      {
-        name: "Enterprise",
-        sites: "Unlimited",
-        features: ["Unlimited endpoints", "25Gbps per link", "Full analytics", "Dedicated support"],
-      },
-    ],
+
 
     // CTA section
     ctaHeading: "Connect Your Global Network",
@@ -311,25 +292,7 @@ const content = {
       },
     ],
 
-    pricingTitle: "Гибкие цены",
-    pricingDescription: "Платите за концевую точку в месяц. Масштабируйте по мере роста.",
-    pricingTiers: [
-      {
-        name: "Малый бизнес",
-        sites: "2-5 площадок",
-        features: ["2-5 концов", "100Mbps за линию", "Базовый мониторинг"],
-      },
-      {
-        name: "Рост",
-        sites: "6-20 площадок",
-        features: ["6-20 концов", "1Gbps за линию", "Продвинутый мониторинг", "Приоритетная поддержка"],
-      },
-      {
-        name: "Корпоративное",
-        sites: "Неограниченно",
-        features: ["Неограниченные концы", "25Gbps за линию", "Полная аналитика", "Выделенная поддержка"],
-      },
-    ],
+
 
     ctaHeading: "Подключите вашу глобальную сеть",
     ctaSubheading: "Начните строить вашу mesh сеть сегодня",
@@ -474,25 +437,7 @@ const content = {
       },
     ],
 
-    pricingTitle: "灵活定价",
-    pricingDescription: "按端点按月计费。随业务增长而扩展。",
-    pricingTiers: [
-      {
-        name: "小型企业",
-        sites: "2-5 个站点",
-        features: ["2-5 个端点", "100Mbps 每条链路", "基础监控"],
-      },
-      {
-        name: "成长阶段",
-        sites: "6-20 个站点",
-        features: ["6-20 个端点", "1Gbps 每条链路", "高级监控", "优先支持"],
-      },
-      {
-        name: "企业版",
-        sites: "无限制",
-        features: ["无限端点", "25Gbps 每条链路", "完整分析", "专属支持"],
-      },
-    ],
+
 
     ctaHeading: "连接您的全球网络",
     ctaSubheading: "立即开始构建网状网络",
@@ -740,40 +685,6 @@ export default function NarenjMeshPage() {
                 <div key={protocol.name} className={`rounded-[16px] border p-6 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
                   <h3 className={`text-lg font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{protocol.name}</h3>
                   <p className={`mt-2 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{protocol.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Pricing Section */}
-          <section className="space-y-6">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
-                {t.pricingTitle}
-              </p>
-              <h2 className={`mt-2 text-3xl font-semibold sm:text-4xl ${isLight ? "text-slate-900" : "text-white"}`}>
-                {t.pricingDescription}
-              </h2>
-            </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {t.pricingTiers.map((tier) => (
-                <div key={tier.name} className={`glass-card rounded-[20px] p-6 sm:p-8 ${isLight ? "border-orange-200/70 bg-white/75" : "border-white/10 bg-slate-950/40"}`}>
-                  <h3 className={`text-2xl font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{tier.name}</h3>
-                  <p className={`mt-1 text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{tier.sites}</p>
-                  <div className={`mt-6 space-y-2 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>
-                    {tier.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-2">
-                        <span className="text-orange-500">✓</span>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href="https://console.narenj.cloud"
-                    className="mt-6 block w-full rounded-full bg-orange-500 px-6 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-400"
-                  >
-                    {t.ctaPrimary}
-                  </a>
                 </div>
               ))}
             </div>

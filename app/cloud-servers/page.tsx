@@ -125,32 +125,7 @@ const content = {
       "Backup and disaster recovery options",
     ],
 
-    // Pricing section
-    pricingTitle: "Simple, Transparent Pricing",
-    pricingDescription: "Pay only for what you use. Scale up or down anytime.",
-    pricingTiers: [
-      {
-        name: "Starter",
-        cpu: "2",
-        ram: "4GB",
-        storage: "40GB SSD",
-        uplink: "1Gbps",
-      },
-      {
-        name: "Professional",
-        cpu: "4",
-        ram: "16GB",
-        storage: "100GB SSD",
-        uplink: "10Gbps",
-      },
-      {
-        name: "Enterprise",
-        cpu: "8",
-        ram: "32GB",
-        storage: "250GB SSD",
-        uplink: "25Gbps",
-      },
-    ],
+
 
     // CTA section
     ctaHeading: "Ready to get started?",
@@ -277,31 +252,7 @@ const content = {
       "Опции резервного копирования и восстановления",
     ],
 
-    pricingTitle: "Простые и прозрачные цены",
-    pricingDescription: "Платите только за то, что используете. Масштабируйте в любой момент.",
-    pricingTiers: [
-      {
-        name: "Стартер",
-        cpu: "2",
-        ram: "4GB",
-        storage: "40GB SSD",
-        uplink: "1Gbps",
-      },
-      {
-        name: "Профессиональный",
-        cpu: "4",
-        ram: "16GB",
-        storage: "100GB SSD",
-        uplink: "10Gbps",
-      },
-      {
-        name: "Корпоративный",
-        cpu: "8",
-        ram: "32GB",
-        storage: "250GB SSD",
-        uplink: "25Gbps",
-      },
-    ],
+
 
     ctaHeading: "Готовы начать?",
     ctaSubheading: "Запустите первый сервер за минуты",
@@ -426,31 +377,7 @@ const content = {
       "备份和灾难恢复选项",
     ],
 
-    pricingTitle: "简单透明的价格",
-    pricingDescription: "只需为使用的部分付费。随时扩展或缩小规模。",
-    pricingTiers: [
-      {
-        name: "入门版",
-        cpu: "2",
-        ram: "4GB",
-        storage: "40GB SSD",
-        uplink: "1Gbps",
-      },
-      {
-        name: "专业版",
-        cpu: "4",
-        ram: "16GB",
-        storage: "100GB SSD",
-        uplink: "10Gbps",
-      },
-      {
-        name: "企业版",
-        cpu: "8",
-        ram: "32GB",
-        storage: "250GB SSD",
-        uplink: "25Gbps",
-      },
-    ],
+
 
     ctaHeading: "准备好开始了吗?",
     ctaSubheading: "在几分钟内部署您的第一台服务器",
@@ -704,49 +631,6 @@ export default function CloudServersPage() {
                 <div key={feature} className={`flex items-start gap-3 rounded-lg border p-3 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
                   <span className="text-orange-500">✓</span>
                   <span className={isLight ? "text-slate-700" : "text-slate-300"}>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Pricing Section */}
-          <section className="space-y-6">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
-                {t.pricingTitle}
-              </p>
-              <h2 className={`mt-2 text-3xl font-semibold sm:text-4xl ${isLight ? "text-slate-900" : "text-white"}`}>
-                {t.pricingDescription}
-              </h2>
-            </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {t.pricingTiers.map((tier) => (
-                <div key={tier.name} className={`glass-card rounded-[20px] p-6 sm:p-8 ${isLight ? "border-orange-200/70 bg-white/75" : "border-white/10 bg-slate-950/40"}`}>
-                  <h3 className={`text-2xl font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{tier.name}</h3>
-                  <div className={`mt-6 space-y-3 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>
-                    <div className="flex justify-between">
-                      <span>CPU Cores:</span>
-                      <span className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{tier.cpu}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>RAM:</span>
-                      <span className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{tier.ram}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Storage:</span>
-                      <span className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{tier.storage}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Uplink:</span>
-                      <span className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{tier.uplink}</span>
-                    </div>
-                  </div>
-                  <a
-                    href="https://console.narenj.cloud"
-                    className="mt-6 block w-full rounded-full bg-orange-500 px-6 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-400"
-                  >
-                    {t.ctaPrimary}
-                  </a>
                 </div>
               ))}
             </div>

@@ -171,27 +171,7 @@ const content = {
       },
     ],
 
-    // Pricing section
-    pricingTitle: "Transparent Pricing",
-    pricingDescription: "No hidden fees. Scale as you need.",
-    pricingNote: "Pricing starts at these rates. Custom quotes available for high-volume and enterprise customers.",
-    pricingTiers: [
-      {
-        speed: "1Gbps",
-        description: "Perfect for growing businesses",
-        features: ["Dedicated bandwidth", "99.99% SLA", "24/7 NOC support"],
-      },
-      {
-        speed: "10Gbps",
-        description: "Enterprise-scale connectivity",
-        features: ["Dedicated bandwidth", "99.99% SLA", "Priority support", "BGP communities"],
-      },
-      {
-        speed: "25Gbps",
-        description: "Maximum performance tier",
-        features: ["Dedicated bandwidth", "99.99% SLA", "Dedicated account manager", "Custom routing"],
-      },
-    ],
+
 
     // SLA section
     slaTitle: "SLA & Support",
@@ -374,26 +354,7 @@ const content = {
       },
     ],
 
-    pricingTitle: "Прозрачное ценообразование",
-    pricingDescription: "Без скрытых платежей. Масштабируйте как вам нужно.",
-    pricingNote: "Цены начинаются с этих ставок. Индивидуальные предложения доступны для больших объёмов.",
-    pricingTiers: [
-      {
-        speed: "1Gbps",
-        description: "Идеально для растущего бизнеса",
-        features: ["Выделённая пропускная способность", "99.99% SLA", "Поддержка NOC 24/7"],
-      },
-      {
-        speed: "10Gbps",
-        description: "Корпоративная связность",
-        features: ["Выделённая пропускная способность", "99.99% SLA", "Приоритетная поддержка", "BGP сообщества"],
-      },
-      {
-        speed: "25Gbps",
-        description: "Максимальный уровень производительности",
-        features: ["Выделённая пропускная способность", "99.99% SLA", "Выделённый менеджер аккаунта", "Пользовательская маршрутизация"],
-      },
-    ],
+
 
     slaTitle: "SLA и поддержка",
     slaFeatures: [
@@ -573,26 +534,7 @@ const content = {
       },
     ],
 
-    pricingTitle: "透明定价",
-    pricingDescription: "无隐藏费用。按需扩展。",
-    pricingNote: "定价从这些费率开始。大额客户可获得定制报价。",
-    pricingTiers: [
-      {
-        speed: "1Gbps",
-        description: "适合增长中的企业",
-        features: ["专用带宽", "99.99% SLA", "24/7 NOC 支持"],
-      },
-      {
-        speed: "10Gbps",
-        description: "企业级连接",
-        features: ["专用带宽", "99.99% SLA", "优先支持", "BGP 社区"],
-      },
-      {
-        speed: "25Gbps",
-        description: "最高性能等级",
-        features: ["专用带宽", "99.99% SLA", "专属客户经理", "自定义路由"],
-      },
-    ],
+
 
     slaTitle: "SLA 和支持",
     slaFeatures: [
@@ -875,43 +817,6 @@ export default function NarenjLinkPage() {
                   <div className="mb-3 text-4xl">{cap.icon}</div>
                   <h3 className={`text-lg font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{cap.title}</h3>
                   <p className={`mt-2 text-sm leading-6 ${isLight ? "text-slate-700" : "text-slate-300"}`}>{cap.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Pricing Section */}
-          <section className="space-y-6">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
-                {t.pricingTitle}
-              </p>
-              <h2 className={`mt-2 text-3xl font-semibold sm:text-4xl ${isLight ? "text-slate-900" : "text-white"}`}>
-                {t.pricingDescription}
-              </h2>
-              <p className={`mt-3 text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>
-                {t.pricingNote}
-              </p>
-            </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {t.pricingTiers.map((tier) => (
-                <div key={tier.speed} className={`glass-card rounded-[20px] p-6 sm:p-8 ${isLight ? "border-orange-200/70 bg-white/75" : "border-white/10 bg-slate-950/40"}`}>
-                  <h3 className={`text-2xl font-bold text-orange-500`}>{tier.speed}</h3>
-                  <p className={`mt-1 text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{tier.description}</p>
-                  <div className={`mt-6 space-y-2 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>
-                    {tier.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-2">
-                        <span className="text-orange-500">✓</span>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href="https://console.narenj.cloud"
-                    className="mt-6 block w-full rounded-full bg-orange-500 px-6 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-400"
-                  >
-                    {t.ctaPrimary}
-                  </a>
                 </div>
               ))}
             </div>
