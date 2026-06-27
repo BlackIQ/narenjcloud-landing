@@ -535,10 +535,9 @@ export default function CloudServersPage() {
 
   return (
     <div
-      dir={language === 'fa' ? 'rtl' : 'ltr'}
       className={`relative min-h-screen overflow-hidden transition-colors duration-300 ${
         isLight ? "bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.14),transparent_30%),linear-gradient(135deg,#fffaf4_0%,#fff7ed_100%)] text-slate-900" : "bg-[#060b08] text-slate-50"
-      } ${language === 'fa' ? 'font-[--font-vazirmatn]' : ''}`}
+      }`}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -603,13 +602,13 @@ export default function CloudServersPage() {
             <button
               type="button"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={`rounded-[14px] border px-3 py-2 text-sm font-medium transition ${
+              className={`rounded-[14px] border px-3 py-2 transition ${
                 isLight
                   ? "border-orange-200 bg-orange-50 text-orange-700 hover:bg-orange-100"
                   : "border-orange-400/30 bg-orange-500/10 text-orange-200 hover:bg-orange-500/20"
               }`}
             >
-              {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+              {theme === "dark" ? "☀️" : "🌙"}
             </button>
             <a
               href="https://console.narenj.cloud"
@@ -788,7 +787,7 @@ export default function CloudServersPage() {
               </a>
               <a href="tel:+9892022908" className={`block rounded-2xl border p-4 transition ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100" : "border-white/10 bg-white/5 hover:bg-white/10"}`}>
                 <p className={`text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{t.call}</p>
-                <p className={`mt-1 font-medium ${isLight ? "text-slate-900" : "text-white"}`}>+98 920 229 08</p>
+                <p className={`mt-1 font-medium ${isLight ? "text-slate-900" : "text-white"}`}>+98 9202 2965</p>
               </a>
               <a href="https://console.narenj.cloud" className={`flex items-center justify-between rounded-2xl border p-4 transition ${isLight ? "border-orange-200 bg-orange-50 hover:bg-orange-100" : "border-orange-400/30 bg-orange-500/10 hover:bg-orange-500/20"}`}>
                 <span>
@@ -799,7 +798,7 @@ export default function CloudServersPage() {
               </a>
             </div>
             <div className={`mt-6 border-t pt-4 text-sm ${isLight ? "border-slate-200 text-slate-600" : "border-white/10 text-slate-400"}`}>
-              Founder & Creator: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a>
+              Founder & Creator: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a> {/* Always in English */}
             </div>
           </section>
         </main>

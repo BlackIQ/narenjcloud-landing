@@ -47,17 +47,3 @@ html.light .glass-card {
   border: 1px solid rgba(249, 115, 22, 0.16);
   box-shadow: 0 20px 60px rgba(249, 115, 22, 0.13);
 }
-
-/* RTL Support for Persian */
-html[dir="rtl"] {
-  direction: rtl;
-  text-align: right;
-}
-
-html[dir="rtl"] body {
-  font-family: var(--font-vazirmatn), Arial, sans-serif;
-}
-
-html[dir="rtl"] * {
-  font-family: var(--font-vazirmatn), inherit;
-}
