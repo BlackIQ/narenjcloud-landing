@@ -1,119 +1,302 @@
-const stats = [
-  { label: "Coverage", value: "Iran + 25+ countries" },
-  { label: "Uplinks", value: "10G backbone" },
-  { label: "Hardware", value: "FortiGate + HPE G10" },
-];
+"use client";
 
-const services = [
-  {
-    title: "Cloud Servers",
+import { useEffect, useMemo, useState } from "react";
+
+type Language = "en" | "ru";
+type Theme = "dark" | "light";
+
+const content = {
+  en: {
+    badge: "Cloud infrastructure • Iran & 25+ countries",
+    title: "Secure cloud and connectivity, built for modern networks.",
     description:
-      "Reliable cloud infrastructure in Iran and global regions, designed for performance and stability.",
+      "NarenjCloud delivers dependable cloud servers, private site-to-site networking, and global links with a strong infrastructure backbone powered by FortiGate firewalls and HPE G10 systems.",
+    ctaPrimary: "Go to console",
+    ctaSecondary: "Explore services",
+    navServices: "Services",
+    navAbout: "About",
+    navContact: "Contact",
+    stats: [
+      { label: "Coverage", value: "Iran + 25+ countries" },
+      { label: "Uplinks", value: "10G backbone" },
+      { label: "Hardware", value: "FortiGate + HPE G10" },
+    ],
+    whyTitle: "Why teams choose us",
+    feature1Title: "FortiGate protection",
+    feature1Text: "Security-first architecture for critical workloads and routed environments.",
+    feature2Title: "10G uplinks",
+    feature2Text: "High-capacity connectivity with strong throughput for demanding services.",
+    feature3Title: "Dedicated HPE options",
+    feature3Text: "Flexible server choices for customers who need more control and power.",
+    servicesTitle: "Infrastructure that moves with your business.",
+    services: [
+      {
+        title: "Cloud Servers",
+        description:
+          "Reliable cloud infrastructure in Iran and global regions, designed for performance and stability.",
+      },
+      {
+        title: "Narenj Mesh",
+        description:
+          "Connect multiple sites and MikroTik routers even without static IPs and build private routes with ease.",
+      },
+      {
+        title: "Narenj Link",
+        description:
+          "Create secure connectivity to any location in the world, from regional branches to international offices.",
+      },
+      {
+        title: "Dedicated HPE Servers",
+        description:
+          "Bring in dedicated enterprise-grade HPE hardware for workloads that need more control and power.",
+      },
+    ],
+    aboutTitle: "Built by people who know networks from the inside.",
+    aboutText:
+      "NarenjCloud began as a dream of three friends who spent years working together across many companies. Today, that shared experience is shaping a company focused on dependable infrastructure, smart connectivity, and real-world service.",
+    locationsTitle: "Top locations",
+    locations: [
+      { name: "Iran (HQ)", note: "Primary headquarters and regional operations." },
+      { name: "Russia", note: "Strong infrastructure presence with reliable connectivity." },
+      { name: "UAE", note: "Regional expansion for international reach." },
+      { name: "Netherlands", note: "Strategic gateway for global traffic and links." },
+    ],
+    contactTitle: "Contact",
+    email: "Email",
+    call: "Call",
+    console: "Console",
   },
-  {
-    title: "Narenj Mesh",
+  ru: {
+    badge: "Облачная инфраструктура • Иран и 25+ стран",
+    title: "Надёжное облако и подключение для современных сетей.",
     description:
-      "Connect multiple sites and MikroTik routers even without static IPs and build private routes with ease.",
+      "NarenjCloud предоставляет надёжные облачные серверы, частные соединения между площадками и глобальные каналы связи на базе мощной инфраструктуры с FortiGate и HPE G10.",
+    ctaPrimary: "Перейти в консоль",
+    ctaSecondary: "Смотреть сервисы",
+    navServices: "Сервисы",
+    navAbout: "О нас",
+    navContact: "Контакты",
+    stats: [
+      { label: "Покрытие", value: "Иран + 25+ стран" },
+      { label: "Уплинки", value: "10G магистраль" },
+      { label: "Оборудование", value: "FortiGate + HPE G10" },
+    ],
+    whyTitle: "Почему клиенты выбирают нас",
+    feature1Title: "Защита FortiGate",
+    feature1Text: "Архитектура с акцентом на безопасность для критически важных нагрузок и маршрутизации.",
+    feature2Title: "10G uplinks",
+    feature2Text: "Высокопроизводительная связность для требовательных сервисов и трафика.",
+    feature3Title: "Dedicated HPE серверы",
+    feature3Text: "Гибкие решения на базе HPE для нагрузок, которым нужен больший контроль и мощность.",
+    servicesTitle: "Инфраструктура, которая движется вместе с вашим бизнесом.",
+    services: [
+      {
+        title: "Облачные серверы",
+        description:
+          "Надёжная облачная инфраструктура в Иране и в международных регионах с акцентом на стабильность.",
+      },
+      {
+        title: "Narenj Mesh",
+        description:
+          "Подключайте несколько площадок и MikroTik даже без статических IP и строите частные маршруты без лишних сложностей.",
+      },
+      {
+        title: "Narenj Link",
+        description:
+          "Создавайте безопасное соединение с любым нужным вам местом в мире — от филиалов до международных офисов.",
+      },
+      {
+        title: "Выделенные серверы HPE",
+        description:
+          "Подбираем выделенное оборудование HPE для задач, которым нужен высокий уровень контроля и мощности.",
+      },
+    ],
+    aboutTitle: "Создано людьми, которые понимают сети изнутри.",
+    aboutText:
+      "NarenjCloud начался как мечта трёх друзей, много лет работавших вместе в разных компаниях. Сегодня этот общий опыт превращается в компанию, которая делает ставку на надёжную инфраструктуру, умную связность и практический сервис.",
+    locationsTitle: "Ключевые локации",
+    locations: [
+      { name: "Иран (HQ)", note: "Главный хаб и региональные операции." },
+      { name: "Россия", note: "Сильное присутствие и надёжная инфраструктура." },
+      { name: "ОАЭ", note: "Региональное развитие для международного охвата." },
+      { name: "Нидерланды", note: "Стратегический узел для глобального трафика и связности." },
+    ],
+    contactTitle: "Контакты",
+    email: "Email",
+    call: "Телефон",
+    console: "Консоль",
   },
-  {
-    title: "Narenj Link",
-    description:
-      "Create secure connectivity to any location in the world, from regional branches to international offices.",
-  },
-  {
-    title: "Dedicated HPE Servers",
-    description:
-      "Bring in dedicated enterprise-grade HPE hardware for workloads that need more control and power.",
-  },
-];
+};
 
 export default function Home() {
+  const [language, setLanguage] = useState<Language>("en");
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem("narenj-theme") as Theme | null;
+    const storedLanguage = window.localStorage.getItem("narenj-language") as Language | null;
+    if (storedTheme === "light" || storedTheme === "dark") {
+      setTheme(storedTheme);
+    }
+    if (storedLanguage === "en" || storedLanguage === "ru") {
+      setLanguage(storedLanguage);
+    }
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("light", theme === "light");
+    root.setAttribute("data-theme", theme);
+    window.localStorage.setItem("narenj-theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    window.localStorage.setItem("narenj-language", language);
+  }, [language]);
+
+  const t = useMemo(() => content[language], [language]);
+  const isLight = theme === "light";
+
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#060b08] text-slate-50">
+    <div
+      className={`relative min-h-screen overflow-hidden transition-colors duration-300 ${
+        isLight ? "bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.14),transparent_30%),linear-gradient(135deg,#fffaf4_0%,#fff7ed_100%)] text-slate-900" : "bg-[#060b08] text-slate-50"
+      }`}
+    >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,132,0,0.25),transparent_36%),radial-gradient(circle_at_85%_15%,rgba(255,180,0,0.18),transparent_24%)]" />
-        <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,140,0,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,140,0,0.16)_1px,transparent_1px)] [background-size:70px_70px]" />
-        <div className="absolute left-[-6%] top-24 h-72 w-72 rounded-full border border-orange-400/20 blur-3xl" />
-        <div className="absolute bottom-[-8%] right-[-4%] h-80 w-80 rounded-full border border-orange-300/15 blur-3xl" />
+        <div
+          className={`absolute inset-0 ${
+            isLight
+              ? "bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.18),transparent_34%),radial-gradient(circle_at_85%_15%,rgba(251,191,36,0.14),transparent_24%)]"
+              : "bg-[radial-gradient(circle_at_top_left,rgba(255,132,0,0.25),transparent_36%),radial-gradient(circle_at_85%_15%,rgba(255,180,0,0.18),transparent_24%)]"
+          }`}
+        />
+        <div
+          className={`absolute inset-0 opacity-30 ${
+            isLight ? "[background-image:linear-gradient(rgba(249,115,22,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(249,115,22,0.12)_1px,transparent_1px)]" : "[background-image:linear-gradient(rgba(255,140,0,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,140,0,0.16)_1px,transparent_1px)]"
+          } [background-size:70px_70px]`}
+        />
+        <div className={`absolute left-[-6%] top-24 h-72 w-72 rounded-full ${isLight ? "border border-orange-400/20" : "border border-orange-400/20"} blur-3xl`} />
+        <div className={`absolute bottom-[-8%] right-[-4%] h-80 w-80 rounded-full ${isLight ? "border border-orange-300/20" : "border border-orange-300/15"} blur-3xl`} />
       </div>
 
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
-        <header className="glass-card mb-8 flex items-center justify-between rounded-full px-4 py-3 sm:px-6">
-          <a href="#top" className="text-lg font-semibold tracking-[0.26em] text-orange-300">
-            NARENJ<span className="ml-1 text-white">CLOUD</span>
+        <header
+          className={`glass-card mb-8 flex flex-col gap-4 rounded-[999px] px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between ${
+            isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"
+          }`}
+        >
+          <a href="#top" className="text-lg font-semibold tracking-[0.26em] text-orange-500">
+            NARENJ<span className={`ml-1 ${isLight ? "text-slate-900" : "text-white"}`}>CLOUD</span>
           </a>
-          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-            <a href="#services" className="transition hover:text-orange-300">
-              Services
+          <nav className={`hidden items-center gap-6 text-sm md:flex ${isLight ? "text-slate-700" : "text-slate-300"}`}>
+            <a href="#services" className="transition hover:text-orange-500">
+              {t.navServices}
             </a>
-            <a href="#about" className="transition hover:text-orange-300">
-              About
+            <a href="#about" className="transition hover:text-orange-500">
+              {t.navAbout}
             </a>
-            <a href="#contact" className="transition hover:text-orange-300">
-              Contact
+            <a href="#contact" className="transition hover:text-orange-500">
+              {t.navContact}
             </a>
           </nav>
-          <a
-            href="https://console.narenj.cloud"
-            className="rounded-full border border-orange-400/40 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-200 transition hover:bg-orange-500/20"
-          >
-            Go to console
-          </a>
+          <div className="flex flex-wrap items-center gap-2">
+            <select
+              aria-label="Select language"
+              value={language}
+              onChange={(event) => setLanguage(event.target.value as Language)}
+              className={`rounded-full border px-3 py-2 text-sm outline-none ${
+                isLight
+                  ? "border-orange-200 bg-white text-slate-800"
+                  : "border-white/15 bg-slate-900/70 text-slate-100"
+              }`}
+            >
+              <option value="en">EN</option>
+              <option value="ru">RU</option>
+            </select>
+            <button
+              type="button"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className={`rounded-full border px-3 py-2 text-sm font-medium transition ${
+                isLight
+                  ? "border-orange-200 bg-orange-50 text-orange-700 hover:bg-orange-100"
+                  : "border-orange-400/30 bg-orange-500/10 text-orange-200 hover:bg-orange-500/20"
+              }`}
+            >
+              {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+            </button>
+            <a
+              href="https://console.narenj.cloud"
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                isLight
+                  ? "border-orange-300 bg-orange-500/10 text-orange-700 hover:bg-orange-500/20"
+                  : "border-orange-400/40 bg-orange-500/10 text-orange-200 hover:bg-orange-500/20"
+              }`}
+            >
+              {t.ctaPrimary}
+            </a>
+          </div>
         </header>
 
         <main id="top" className="flex-1 space-y-8 pb-10">
           <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div className="glass-card rounded-[32px] p-8 sm:p-10 lg:p-12">
-              <span className="inline-flex rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-sm font-medium text-orange-200">
-                Cloud infrastructure • Iran & 25+ countries
+            <div
+              className={`glass-card rounded-[32px] p-8 sm:p-10 lg:p-12 ${
+                isLight ? "border-orange-200/70 bg-white/70 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"
+              }`}
+            >
+              <span className={`inline-flex rounded-full border px-3 py-1 text-sm font-medium ${isLight ? "border-orange-300 bg-orange-100 text-orange-700" : "border-orange-400/30 bg-orange-500/10 text-orange-200"}`}>
+                {t.badge}
               </span>
-              <h1 className="mt-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-                Secure cloud and connectivity, built for modern networks.
+              <h1 className={`mt-6 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl ${isLight ? "text-slate-900" : "text-white"}`}>
+                {t.title}
               </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                NarenjCloud delivers dependable cloud servers, private site-to-site networking, and global links with a strong infrastructure backbone powered by FortiGate firewalls and HPE G10 systems.
+              <p className={`mt-5 max-w-2xl text-lg leading-8 ${isLight ? "text-slate-700" : "text-slate-300"}`}>
+                {t.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="https://console.narenj.cloud"
                   className="rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-400"
                 >
-                  Go to console
+                  {t.ctaPrimary}
                 </a>
                 <a
                   href="#services"
-                  className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:bg-white/10"
+                  className={`rounded-full border px-6 py-3 text-sm font-semibold transition ${
+                    isLight ? "border-slate-300 bg-white/80 text-slate-800 hover:bg-white" : "border-white/15 bg-white/5 text-slate-100 hover:bg-white/10"
+                  }`}
                 >
-                  Explore services
+                  {t.ctaSecondary}
                 </a>
               </div>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {stats.map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-white/10 bg-slate-950/30 p-4">
-                    <p className="text-2xl font-semibold text-white">{item.value}</p>
-                    <p className="mt-1 text-sm text-slate-400">{item.label}</p>
+                {t.stats.map((item) => (
+                  <div key={item.label} className={`rounded-2xl border p-4 ${isLight ? "border-orange-200/70 bg-orange-50/70" : "border-white/10 bg-slate-950/30"}`}>
+                    <p className={`text-2xl font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{item.value}</p>
+                    <p className={`mt-1 text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{item.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="glass-card rounded-[32px] p-8 sm:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">
-                Why teams choose us
+            <div className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/70 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
+                {t.whyTitle}
               </p>
               <div className="mt-6 space-y-4">
-                <div className="rounded-2xl border border-orange-400/20 bg-orange-500/10 p-4">
-                  <p className="font-semibold text-white">FortiGate protection</p>
-                  <p className="mt-1 text-sm text-slate-300">Security-first architecture for critical workloads and routed environments.</p>
+                <div className={`rounded-2xl border p-4 ${isLight ? "border-orange-200 bg-orange-50/80" : "border-orange-400/20 bg-orange-500/10"}`}>
+                  <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature1Title}</p>
+                  <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature1Text}</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="font-semibold text-white">10G uplinks</p>
-                  <p className="mt-1 text-sm text-slate-300">High-capacity connectivity with strong throughput for demanding services.</p>
+                <div className={`rounded-2xl border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                  <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature2Title}</p>
+                  <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature2Text}</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="font-semibold text-white">Dedicated HPE options</p>
-                  <p className="mt-1 text-sm text-slate-300">Flexible server choices for customers who need more control and power.</p>
+                <div className={`rounded-2xl border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                  <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{t.feature3Title}</p>
+                  <p className={`mt-1 text-sm ${isLight ? "text-slate-700" : "text-slate-300"}`}>{t.feature3Text}</p>
                 </div>
               </div>
             </div>
@@ -122,58 +305,67 @@ export default function Home() {
           <section id="services" className="space-y-5">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">
-                  Services
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
+                  {t.navServices}
                 </p>
-                <h2 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">
-                  Infrastructure that moves with your business.
+                <h2 className={`mt-2 text-3xl font-semibold sm:text-4xl ${isLight ? "text-slate-900" : "text-white"}`}>
+                  {t.servicesTitle}
                 </h2>
               </div>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {services.map((service) => (
-                <article key={service.title} className="glass-card rounded-[24px] p-6">
-                  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
+              {t.services.map((service) => (
+                <article key={service.title} className={`glass-card rounded-[24px] p-6 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+                  <h3 className={`text-xl font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{service.title}</h3>
+                  <p className={`mt-3 text-sm leading-7 ${isLight ? "text-slate-700" : "text-slate-300"}`}>{service.description}</p>
                 </article>
               ))}
             </div>
           </section>
 
           <section id="about" className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="glass-card rounded-[32px] p-8 sm:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">About us</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
-                Built by people who know networks from the inside.
+            <div className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">{t.navAbout}</p>
+              <h2 className={`mt-3 text-3xl font-semibold sm:text-4xl ${isLight ? "text-slate-900" : "text-white"}`}>
+                {t.aboutTitle}
               </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-300">
-                NarenjCloud began as a dream of three friends who spent years working together across many companies. Today, that shared experience is turning into a company focused on dependable infrastructure, smart connectivity, and real-world service.
+              <p className={`mt-5 text-lg leading-8 ${isLight ? "text-slate-700" : "text-slate-300"}`}>
+                {t.aboutText}
               </p>
             </div>
 
-            <div className="glass-card rounded-[32px] p-8 sm:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">Contact</p>
-              <div id="contact" className="mt-5 space-y-4 text-slate-300">
-                <a href="mailto:info@narenj.cloud" className="block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10">
-                  <p className="text-sm text-slate-400">Email</p>
-                  <p className="mt-1 font-medium text-white">info@narenj.cloud</p>
-                </a>
-                <a href="tel:+9892022908" className="block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10">
-                  <p className="text-sm text-slate-400">Call</p>
-                  <p className="mt-1 font-medium text-white">+98 920 229 08</p>
-                </a>
-                <a
-                  href="https://console.narenj.cloud"
-                  className="flex items-center justify-between rounded-2xl border border-orange-400/30 bg-orange-500/10 p-4 transition hover:bg-orange-500/20"
-                >
-                  <span>
-                    <p className="text-sm text-orange-200">Console</p>
-                    <p className="mt-1 font-medium text-white">console.narenj.cloud</p>
-                  </span>
-                  <span className="text-orange-300">→</span>
-                </a>
+            <div className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">{t.locationsTitle}</p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {t.locations.map((location) => (
+                  <div key={location.name} className={`rounded-2xl border p-4 ${isLight ? "border-slate-200 bg-slate-50" : "border-white/10 bg-white/5"}`}>
+                    <p className={`font-semibold ${isLight ? "text-slate-900" : "text-white"}`}>{location.name}</p>
+                    <p className={`mt-1 text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{location.note}</p>
+                  </div>
+                ))}
               </div>
+            </div>
+          </section>
+
+          <section id="contact" className={`glass-card rounded-[32px] p-8 sm:p-10 ${isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"}`}>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">{t.contactTitle}</p>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              <a href="mailto:info@narenj.cloud" className={`block rounded-2xl border p-4 transition ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100" : "border-white/10 bg-white/5 hover:bg-white/10"}`}>
+                <p className={`text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{t.email}</p>
+                <p className={`mt-1 font-medium ${isLight ? "text-slate-900" : "text-white"}`}>info@narenj.cloud</p>
+              </a>
+              <a href="tel:+9892022908" className={`block rounded-2xl border p-4 transition ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100" : "border-white/10 bg-white/5 hover:bg-white/10"}`}>
+                <p className={`text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>{t.call}</p>
+                <p className={`mt-1 font-medium ${isLight ? "text-slate-900" : "text-white"}`}>+98 920 229 08</p>
+              </a>
+              <a href="https://console.narenj.cloud" className={`flex items-center justify-between rounded-2xl border p-4 transition ${isLight ? "border-orange-200 bg-orange-50 hover:bg-orange-100" : "border-orange-400/30 bg-orange-500/10 hover:bg-orange-500/20"}`}>
+                <span>
+                  <p className={`text-sm ${isLight ? "text-orange-700" : "text-orange-200"}`}>{t.console}</p>
+                  <p className={`mt-1 font-medium ${isLight ? "text-slate-900" : "text-white"}`}>console.narenj.cloud</p>
+                </span>
+                <span className={isLight ? "text-orange-700" : "text-orange-300"}>→</span>
+              </a>
             </div>
           </section>
         </main>
