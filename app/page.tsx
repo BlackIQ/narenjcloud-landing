@@ -22,14 +22,16 @@ const content = {
       { label: "Hardware", value: "FortiGate + HPE G10" },
     ],
     whyTitle: "Why teams choose us",
-    feature1Title: "FortiGate protection",
-    feature1Text: "Security-first architecture for critical workloads and routed environments.",
-    feature2Title: "10G uplinks",
-    feature2Text: "High-capacity connectivity with strong throughput for demanding services.",
-    feature3Title: "Dedicated HPE options",
-    feature3Text: "Flexible server choices for customers who need more control and power.",
-    feature4Title: "Cisco switches",
-    feature4Text: "Cisco Nexus and other data-center-grade switching solutions for high-density networking.",
+    feature1Title: "FortiGate firewalls",
+    feature1Text: "Security-first architecture for critical workloads, routed environments, and protected traffic flows.",
+    feature2Title: "Cisco switches",
+    feature2Text: "Cisco Nexus series switching for reliable, scalable, and high-performance datacenter connectivity.",
+    feature3Title: "MikroTik routers",
+    feature3Text: "CCR2216 series routers for advanced routing, flexibility, and dependable network edge deployments.",
+    feature4Title: "10G uplinks",
+    feature4Text: "Flexible connectivity with 1G, 10G, and 25G uplinks for different performance and capacity needs.",
+    feature5Title: "Dedicated HPE options",
+    feature5Text: "Enterprise-grade HPE ProLiant Gen11 and Gen10 servers for workloads that need more control and power.",
     servicesTitle: "Infrastructure that moves with your business.",
     services: [
       {
@@ -85,14 +87,16 @@ const content = {
       { label: "Оборудование", value: "FortiGate + HPE G10" },
     ],
     whyTitle: "Почему клиенты выбирают нас",
-    feature1Title: "Защита FortiGate",
-    feature1Text: "Архитектура с акцентом на безопасность для критически важных нагрузок и маршрутизации.",
-    feature2Title: "10G uplinks",
-    feature2Text: "Высокопроизводительная связность для требовательных сервисов и трафика.",
-    feature3Title: "Dedicated HPE серверы",
-    feature3Text: "Гибкие решения на базе HPE для нагрузок, которым нужен больший контроль и мощность.",
-    feature4Title: "Коммутаторы Cisco",
-    feature4Text: "Cisco Nexus и другие корпоративные решения для дата-центрической инфраструктуры.",
+    feature1Title: "Межсетевые экраны FortiGate",
+    feature1Text: "Архитектура с акцентом на безопасность для критически важных нагрузок, маршрутизации и защищённого трафика.",
+    feature2Title: "Коммутаторы Cisco",
+    feature2Text: "Коммутаторы серии Cisco Nexus для надёжной, масштабируемой и высокопроизводительной связности дата-центров.",
+    feature3Title: "Маршрутизаторы MikroTik",
+    feature3Text: "Маршрутизаторы серии CCR2216 для продвинутой маршрутизации, гибкости и надёжной работы на границе сети.",
+    feature4Title: "10G uplinks",
+    feature4Text: "Гибкая связность с uplinks на 1G, 10G и 25G для разных задач по производительности и ёмкости.",
+    feature5Title: "Выделенные серверы HPE",
+    feature5Text: "Корпоративные серверы HPE ProLiant Gen11 и Gen10 для нагрузок, которым нужен больший контроль и мощность.",
     servicesTitle: "Инфраструктура, которая движется вместе с вашим бизнесом.",
     services: [
       {
@@ -150,12 +154,14 @@ const content = {
     whyTitle: "为何客户选择我们",
     feature1Title: "FortiGate 防火墙",
     feature1Text: "面向关键业务与网络路由场景的安全优先架构。",
-    feature2Title: "10G 上联链路",
-    feature2Text: "高容量连接，满足高吞吐和高要求业务场景。",
-    feature3Title: "HPE G10 服务器",
-    feature3Text: "灵活的企业级 HPE 服务器方案，提供更高控制力和性能。",
-    feature4Title: "Cisco 交换机",
-    feature4Text: "Cisco Nexus 及其他数据中心级交换机方案，支撑高密度网络环境。",
+    feature2Title: "Cisco 交换机",
+    feature2Text: "Cisco Nexus 系列交换机，提供稳定、可扩展且高性能的数据中心连接。",
+    feature3Title: "MikroTik 路由器",
+    feature3Text: "CCR2216 系列路由器，适用于高级路由、灵活部署和可靠的边缘网络场景。",
+    feature4Title: "10G 上联链路",
+    feature4Text: "提供 1G、10G 和 25G 上联链路，满足不同容量和性能需求。",
+    feature5Title: "HPE 专用服务器",
+    feature5Text: "HPE ProLiant Gen11 与 Gen10 企业级服务器，适用于需要更高控制力和算力的业务。",
     servicesTitle: "与业务同步发展的基础设施。",
     services: [
       {
@@ -247,7 +253,7 @@ export default function Home() {
 
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
         <header
-          className={`glass-card mb-8 flex flex-col gap-4 rounded-[20px] px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between ${
+          className={`glass-card mb-8 flex flex-col gap-4 rounded-[16px] px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between ${
             isLight ? "border-orange-200/70 bg-white/75 text-slate-900" : "border-white/10 bg-slate-950/40 text-slate-50"
           }`}
         >
