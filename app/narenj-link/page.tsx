@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Language = "en" | "ru" | "zh" | "fa";
+type Language = "en" | "ru" | "zh";
 type Theme = "dark" | "light";
 
 const content = {
@@ -193,6 +193,7 @@ const content = {
     email: "Email",
     call: "Call",
     console: "Console",
+    founderCreator: "Founder & Creator",
   },
 
   ru: {
@@ -373,6 +374,7 @@ const content = {
     email: "Email",
     call: "Телефон",
     console: "Консоль",
+    founderCreator: "Основатель и создатель",
   },
 
   zh: {
@@ -553,175 +555,9 @@ const content = {
     email: "邮箱",
     call: "电话",
     console: "控制台",
+    founderCreator: "创始人",
   },
-  fa: {
-    badge: "راه حل های اتصال جهانی",
-    title: "به هر مکانی در جهان متصل شوید",
-    description:
-      "Narenj Link اتصال اختصاصی ایمن بین زیرساخت شما و هر مقصدی در جهان فراهم می کند. زمان فعالیت تضمینی، تاخیر کم و عملکرد بی نقص برای بارهای کاری بحرانی.",
-    ctaPrimary: "ورود به کنسول",
-    ctaSecondary: "بررسی دسترس پذیری",
-    navServices: "خدمات",
-    navAbout: "درباره ما",
-    navContact: "تماس",
-    featureTitle: "چرا Narenj Link را انتخاب کنید",
-    features: [
-      {
-        title: "پهنای باند اختصاصی",
-        description: "پهنای باند تضمینی و غیر اشتراکی برای عملکرد و قابلیت اعتماد سازگار.",
-      },
-      {
-        title: "پوشش جهانی",
-        description: "از ایران به 25+ کشور متصل شوید. هم تراز مستقیم و مسیرهای تاخیر کم.",
-      },
-      {
-        title: "SLA تضمینی",
-        description: "تضمین 99.99% زمان فعالیت با جبران خسارت برای خرابی ها.",
-      },
-      {
-        title: "پشتیبانی NOC 24/7",
-        description: "تیم پشتیبانی اختصاصی پیوندهای شما را 24/7 نظارت می کند.",
-      },
-    ],
-    reachTitle: "پوشش جهانی",
-    reachDescription: "به مناطق اصلی جهان متصل شوید",
-    regions: [
-      { region: "اروپا", countries: "آلمان، فرانسه، هلند، انگلیس، لهستان و غیره" },
-      { region: "آسیا و اقیانوس آرام", countries: "سنگاپور، هنگ کنگ، ژاپن، استرالیا، هند و غیره" },
-      { region: "امریکا", countries: "ایالات متحده، کانادا، برزیل، مکزیک و غیره" },
-      { region: "خاورمیانه", countries: "امارات، عربستان سعودی، قطر، ترکیه و غیره" },
-      { region: "آفریقا", countries: "آفریقای جنوبی، نیجریه، مصر و غیره" },
-      { region: "منطقه CIS", countries: "روسیه، قزاقستان، بلاروس و غیره" },
-    ],
-    typesTitle: "انواع اتصال",
-    typesDescription: "راه حل اتصال مناسب خود را انتخاب کنید",
-    connectionTypes: [
-      {
-        name: "پیوند بین المللی مستقیم",
-        description: "فیبر اختصاصی مستقیم به مقصد شما با SLA تضمینی.",
-        speed: "1Gbps - 25Gbps",
-      },
-      {
-        name: "IP Transit",
-        description: "اتصال IP مقرون به صرفه با عملکرد بی نقص در سراسر جهان.",
-        speed: "100Mbps - 10Gbps",
-      },
-      {
-        name: "MPLS مدیریت شده",
-        description: "مهندسی ترافیک سطح سازمانی با QoS و ویژگی های پیشرفته.",
-        speed: "10Mbps - 25Gbps",
-      },
-      {
-        name: "Cloud Backbone",
-        description: "اتصال مستقیم به بزرگترین ارائه دهندگان ابری در جهان.",
-        speed: "1Gbps - 25Gbps",
-      },
-    ],
-    useCaseTitle: "عالی برای",
-    useCaseDescription: "برنامه های سطح سازمانی و مأموریت انتقادی",
-    useCases: [
-      {
-        name: "تجارت الکترونیکی بین المللی",
-        description: "اتصالات تاخیر کم به پایگاه مشتریان جهانی.",
-      },
-      {
-        name: "امور مالی و بانکی",
-        description: "پیوندهای اختصاصی محافظ شده برای تراکنش های حساس به زمان.",
-      },
-      {
-        name: "رسانه و CDN",
-        description: "تحویل سریع محتوا به کاربران در سراسر قاره ها.",
-      },
-      {
-        name: "نرم افزار به عنوان خدمات",
-        description: "زیرساخت جهانی قابل اعتماد برای استقرار چندمنطقه ای.",
-      },
-      {
-        name: "شبکه های IoT و حسگر",
-        description: "دستگاه های لبه را با عملکرد سازگار و تاخیر کم متصل کنید.",
-      },
-      {
-        name: "دفاتر دور",
-        description: "اتصالات سریع و قابل اعتماد برای تیم های توزیع شده.",
-      },
-    ],
-    performanceTitle: "معیار های عملکرد",
-    performanceDescription: "از Narenj Link چه انتظاری می رود",
-    metrics: [
-      {
-        icon: "⚡",
-        title: "تاخیر فوق العاده کم",
-        value: "<20ms",
-        description: "به بیشتر مناطق اصلی از ایران",
-      },
-      {
-        icon: "📈",
-        title: "بازده",
-        value: "تا 25Gbps",
-        description: "پهنای باند اختصاصی غیر فوق الحد",
-      },
-      {
-        icon: "🛡️",
-        title: "SLA زمان فعالیت",
-        value: "99.99%",
-        description: "با جبران خسارت برای خرابی ها",
-      },
-      {
-        icon: "🔍",
-        title: "کنترل لرزش",
-        value: "<5ms",
-        description: "عملکرد پایدار و قابل پیش بینی",
-      },
-    ],
-    capabilitiesTitle: "توانایی های پیشرفته",
-    capabilities: [
-      {
-        icon: "🔐",
-        title: "رمزگذاری سراسری",
-        description: "ترافیک بین المللی خود را با رمزگذاری اختیاری محافظت کنید",
-      },
-      {
-        icon: "📊",
-        title: "مهندسی ترافیک",
-        description: "MPLS TE برای انتخاب مسیر بهینه و موازنه بار",
-      },
-      {
-        icon: "🌐",
-        title: "مسیریابی Anycast",
-        description: "ترافیک را به مکان های لبه نزدیکتر برای عملکرد بهتر هدایت کنید",
-      },
-      {
-        icon: "⚙️",
-        title: "انجمن های BGP",
-        description: "کنترل مسیریابی پیشرفته با انجمن ها و سیاست های BGP",
-      },
-      {
-        icon: "📉",
-        title: "محافظت DDoS",
-        description: "کاهش DDoS بالادست و تمیز کردن ترافیک",
-      },
-      {
-        icon: "🎯",
-        title: "QoS و اولویت",
-        description: "پهنای باند را برای برنامه های بحرانی تضمین کنید",
-      },
-    ],
-    slaTitle: "SLA و پشتیبانی",
-    slaFeatures: [
-      "تضمین زمان فعالیت 99.99% ماهانه",
-      "اعتبارات خدمات برای توقف",
-      "پشتیبانی NOC اختصاصی 24/7",
-      "پاسخ فوری 15 دقیقه ای",
-      "گزارش های عملکرد سه ماهه",
-      "نظارت و هشدار پیشرفته",
-    ],
-    ctaHeading: "آماده رفتن به جهان؟",
-    ctaSubheading: "به جهان با عملکرد تضمینی متصل شوید",
-    contactTitle: "سوالی دارید؟",
-    email: "ایمیل",
-    call: "تماس",
-    console: "کنسول",
-  },
+  
 };
 
 export default function NarenjLinkPage() {
@@ -734,7 +570,7 @@ export default function NarenjLinkPage() {
     if (storedTheme === "light" || storedTheme === "dark") {
       setTheme(storedTheme);
     }
-    if (storedLanguage === "en" || storedLanguage === "ru" || storedLanguage === "zh" || storedLanguage === "fa") {
+    if (storedLanguage === "en" || storedLanguage === "ru" || storedLanguage === "zh") {
       setLanguage(storedLanguage);
     }
   }, []);
@@ -799,7 +635,7 @@ export default function NarenjLinkPage() {
           </nav>
           <div className="flex flex-wrap items-center gap-2">
             <div className={`inline-flex items-center gap-1 rounded-[14px] border p-1 ${isLight ? "border-orange-200 bg-orange-50" : "border-white/10 bg-slate-900/70"}`}>
-              {(["en", "ru", "zh", "fa"] as Language[]).map((value) => (
+              {(["en", "ru", "zh"] as Language[]).map((value) => (
                 <button
                   key={value}
                   type="button"
@@ -1052,7 +888,7 @@ export default function NarenjLinkPage() {
               </a>
             </div>
             <div className={`mt-6 border-t pt-4 text-sm ${isLight ? "border-slate-200 text-slate-600" : "border-white/10 text-slate-400"}`}>
-              Founder & Creator: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a> {/* Always in English */}
+              {t.founderCreator}: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a>
             </div>
           </section>
         </main>
