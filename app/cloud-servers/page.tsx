@@ -514,7 +514,7 @@ export default function CloudServersPage() {
     if (storedTheme === "light" || storedTheme === "dark") {
       setTheme(storedTheme);
     }
-    if (storedLanguage === "en" || storedLanguage === "ru" || storedLanguage === "zh") {
+    if (storedLanguage === "en" || storedLanguage === "ru" || storedLanguage === "zh" || storedLanguage === "fa") {
       setLanguage(storedLanguage);
     }
   }, []);
@@ -535,9 +535,10 @@ export default function CloudServersPage() {
 
   return (
     <div
+      dir={language === 'fa' ? 'rtl' : 'ltr'}
       className={`relative min-h-screen overflow-hidden transition-colors duration-300 ${
         isLight ? "bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.14),transparent_30%),linear-gradient(135deg,#fffaf4_0%,#fff7ed_100%)] text-slate-900" : "bg-[#060b08] text-slate-50"
-      }`}
+      } ${language === 'fa' ? 'font-[--font-vazirmatn]' : ''}`}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div
