@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Language = "en" | "ru" | "zh";
+type Language = "en" | "ru" | "zh" | "fa";
 type Theme = "dark" | "light";
 
 const content = {
@@ -206,6 +206,75 @@ const content = {
     call: "电话",
     console: "控制台",
   },
+  fa: {
+    badge: "بستر ابری • ایران و 25+ کشور",
+    title: "بستر ابری امن و قابل اعتماد برای شبکه های مدرن",
+    description:
+      "NarenjCloud سرویس ابری قابل اعتماد، اتصالات خصوصی بین سایت ها و پیوندهای جهانی را فراهم می کند که بر پایه زیرساخت قدرتمندی با فایروال FortiGate و سرورهای HPE G10 طراحی شده است.",
+    ctaPrimary: "ورود به کنسول",
+    ctaSecondary: "مشاهده خدمات",
+    navServices: "خدمات",
+    navAbout: "درباره ما",
+    navContact: "تماس",
+    stats: [
+      { label: "پوشش", value: "ایران + 25+ کشور" },
+      { label: "پیوندهای اپلینک", value: "10G رتم اصلی" },
+      { label: "تجهیزات", value: "FortiGate + HPE G10" },
+    ],
+    whyTitle: "چرا سازمان ها ما را انتخاب می کنند",
+    feature1Title: "امنیت فایروال نسل بعد",
+    feature1Text: "معماری متمرکز بر امنیت برای بارهای کاری بحرانی، محیط های مسیریابی و جریان های ترافیک محافظت شده.",
+    feature2Title: "زیرساخت کلیدزنی سطح سازمانی",
+    feature2Text: "کلیدزن سری Cisco Nexus برای اتصال های مرکز داده قابل اعتماد، مقیاس پذیر و با کارایی بالا.",
+    feature3Title: "پلتفرم های مسیریابی پیشرفته",
+    feature3Text: "مسیریاب های سری CCR2216 برای مسیریابی پیشرفته، انعطاف پذیری و استقرار های پایدار در لبه شبکه.",
+    feature4Title: "پیوند اپلینک 1G تا 25G",
+    feature4Text: "اتصال متنوع با پیوندهای اپلینک 1G، 10G و 25G برای نیازهای مختلف عملکرد و ظرفیت.",
+    feature5Title: "پلتفرم سرور با کارایی بالا",
+    feature5Text: "سرورهای سطح سازمانی HPE ProLiant نسل 11 و 10 برای بارهای کاری که نیاز به عملکرد بالا، انعطاف پذیری و دسترس پذیری پایدار دارند.",
+    servicesTitle: "زیرساخت که با تجارت شما حرکت می کند.",
+    services: [
+      {
+        title: "سرویس ابری",
+        description:
+          "زیرساخت ابری قابل اعتماد در ایران و مناطق جهانی، برای عملکرد و پایداری طراحی شده.",
+        href: "/cloud-servers",
+      },
+      {
+        title: "Narenj Mesh",
+        description:
+          "اتصال چندین سایت و مسیریاب های MikroTik حتی بدون IP ایستا و ساخت مسیرهای خصوصی با سهولت.",
+        href: "/narenj-mesh",
+      },
+      {
+        title: "Narenj Link",
+        description:
+          "ایجاد اتصال ایمن به هر مکانی در جهان، از شعبات منطقه ای تا دفاتر بین المللی.",
+        href: "/narenj-link",
+      },
+      {
+        title: "سرویس سرور اختصاصی HPE",
+        description:
+          "سرویس سرور اختصاصی HPE برای بارهای کاری که نیاز به کنترل و قدرت بیشتری دارند.",
+        href: "/cloud-servers",
+      },
+    ],
+    aboutTitle: "ساخته شده توسط افرادی که شبکه ها را از درون می شناسند.",
+    aboutText:
+      "NarenjCloud از رویای سه دوست شروع شد که سال های زیادی را در شرکت های متفاوت کنار هم کار کردند. امروزه، آن تجربه مشترک یک شرکت را شکل می دهد که بر روی زیرساخت قابل اعتماد، اتصالات هوشمند و خدمات عملی تاکید دارد.",
+    locationsTitle: "مکان های اصلی",
+    locations: [
+      { name: "ایران (مقر)", note: "مقر اصلی و عملیات منطقه ای." },
+      { name: "روسیه", note: "حضور قدرتمند زیرساخت و اتصال قابل اعتماد." },
+      { name: "امارات", note: "بسط منطقه ای برای دسترسی بین المللی." },
+      { name: "هلند", note: "دروازه استراتژیک برای ترافیک جهانی و پیوندها." },
+      { name: "چین", note: "دفتر جدید در آینده نزدیک راه اندازی خواهد شد." },
+    ],
+    contactTitle: "تماس",
+    email: "ایمیل",
+    call: "تماس",
+    console: "کنسول",
+  },
 };
 
 export default function Home() {
@@ -282,7 +351,7 @@ export default function Home() {
           </nav>
           <div className="flex flex-wrap items-center gap-2">
             <div className={`inline-flex items-center gap-1 rounded-[14px] border p-1 ${isLight ? "border-orange-200 bg-orange-50" : "border-white/10 bg-slate-900/70"}`}>
-              {(["en", "ru", "zh"] as Language[]).map((value) => (
+              {(["en", "ru", "zh", "fa"] as Language[]).map((value) => (
                 <button
                   key={value}
                   type="button"

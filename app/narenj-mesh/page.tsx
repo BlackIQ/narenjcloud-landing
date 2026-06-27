@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Language = "en" | "ru" | "zh";
+type Language = "en" | "ru" | "zh" | "fa";
 type Theme = "dark" | "light";
 
 const content = {
@@ -447,6 +447,141 @@ const content = {
     call: "电话",
     console: "控制台",
   },
+  fa: {
+    badge: "اتصال شبکه خصوصی بین سایت ها",
+    title: "چندین سایت را بدون IP ایستا متصل کنید",
+    description:
+      "Narenj Mesh یک راه حل VPN مدرن برای بین سایت ها است که دفاتر، مراکز داده و مکان های دوردست شما را بدون درز و بدون نیاز به آدرس IP ثابت متصل می کند.",
+    ctaPrimary: "ورود به کنسول",
+    ctaSecondary: "اطلاعات بیشتر",
+    navServices: "خدمات",
+    navAbout: "درباره ما",
+    navContact: "تماس",
+    featureTitle: "چرا Narenj Mesh را انتخاب کنید",
+    features: [
+      {
+        title: "IP ایستا لازم نیست",
+        description: "با آدرس های IP پویا به خوبی کار می کند. شعبات خود را بدون IP ثابت متصل کنید.",
+      },
+      {
+        title: "کشف خودکار",
+        description: "نقاط انتهایی شبکه خودکار یکدیگر را کشف و متصل می کنند. تنظیم و فراموشی کنید.",
+      },
+      {
+        title: "تونل رمزگذاری شده",
+        description: "رمزگذاری نظامی تمام ترافیک بین سایت ها را محافظت می کند.",
+      },
+      {
+        title: "تاخیر کم",
+        description: "اتصالات mesh مستقیم تاخیر و عملکرد را بهبود می بخشند.",
+      },
+    ],
+    useCaseTitle: "عالی برای",
+    useCaseDescription: "از کسب و کارهای کوچک تا بنگاه های بزرگ",
+    useCases: [
+      {
+        name: "شبکه های چندسایتی",
+        description: "دفتر مرکزی، شعبات و مکان های منطقه ای را در یک شبکه واحد متصل کنید.",
+      },
+      {
+        name: "تکرار مرکز داده",
+        description: "داده ها و خدمات را بین مراکز داده متعدد تکرار کنید.",
+      },
+      {
+        name: "تنظیم ابری هیبریدی",
+        description: "زیرساخت محلی را با منابع ابری ادغام کنید.",
+      },
+      {
+        name: "دسترسی کارکنان دوردست",
+        description: "به کارکنان دوردست دسترسی ایمن به منابع داخلی بدهید.",
+      },
+      {
+        name: "بازیابی فاجعه",
+        description: "شبکه های انعطاف پذیری با تعویض خودکار بسازید.",
+      },
+      {
+        name: "شبکه های IoT و لبه",
+        description: "دستگاه های لبه و گره های IoT را به مدیریت مرکزی متصل کنید.",
+      },
+    ],
+    howTitle: "چگونه کار می کند",
+    howDescription: "فرایند تنظیم 3 مرحله ای",
+    howSteps: [
+      {
+        number: "1",
+        title: "یک شبکه Mesh ایجاد کنید",
+        description: "یک نمونه Narenj Mesh جدید در کنسول ایجاد کنید و مکان های خود را انتخاب کنید.",
+      },
+      {
+        number: "2",
+        title: "نقاط انتهایی اضافه کنید",
+        description: "دفاتر، مراکز داده یا مسیریاب های MikroTik خود را به عنوان نقاط در شبکه اضافه کنید.",
+      },
+      {
+        number: "3",
+        title: "تنظیم و اتصال کنید",
+        description: "تنظیم خودکار و برقراری اتصال. شبکه شما اکنون زنده است.",
+      },
+    ],
+    capabilitiesTitle: "توانایی ها",
+    capabilities: [
+      {
+        icon: "🌐",
+        title: "اتصال چندسایتی",
+        description: "در یک شبکه، سایت های نامحدود را متصل کنید",
+      },
+      {
+        icon: "🔒",
+        title: "رمزگذاری سراسری",
+        description: "رمزگذاری AES-256 برای تمام ترافیک بین گره ها",
+      },
+      {
+        icon: "⚡",
+        title: "عملکرد بالا",
+        description: "مسیریابی بهینه برای تاخیر حداقل و پهنای باند حداکثر",
+      },
+      {
+        icon: "📊",
+        title: "نظارت بلادرنگ",
+        description: "داشبوردهای نشان دهنده سلامت شبکه، پهنای باند و اتصالات فعال",
+      },
+      {
+        icon: "🔄",
+        title: "تعویض خودکار",
+        description: "مسیرهای پشتیبان برای اطمینان از اتصال حتی در صورت خرابی پیوند",
+      },
+      {
+        icon: "🛠️",
+        title: "یکپارچگی MikroTik",
+        description: "پشتیبانی بومی برای مسیریاب های MikroTik و دستگاه های دیگر",
+      },
+    ],
+    protocolTitle: "پروتکل ها و تجهیزات پشتیبان شده",
+    protocols: [
+      {
+        name: "WireGuard",
+        description: "پروتکل VPN مدرن و سریع با عملکرد عالی",
+      },
+      {
+        name: "IPSec",
+        description: "پروتکل استاندارد صنعت برای اتصالات امن بین سایت ها",
+      },
+      {
+        name: "MikroTik RouterOS",
+        description: "یکپارچگی مستقیم با مسیریاب های MikroTik از طریق پروتکل بومی",
+      },
+      {
+        name: "OpenVPN",
+        description: "نقاط انتهایی سازگار با OpenVPN برای انعطاف پذیری",
+      },
+    ],
+    ctaHeading: "شبکه جهانی خود را متصل کنید",
+    ctaSubheading: "امروز شبکه mesh خود را ساختن شروع کنید",
+    contactTitle: "سوالی دارید؟",
+    email: "ایمیل",
+    call: "تماس",
+    console: "کنسول",
+  },
 };
 
 export default function NarenjMeshPage() {
@@ -524,7 +659,7 @@ export default function NarenjMeshPage() {
           </nav>
           <div className="flex flex-wrap items-center gap-2">
             <div className={`inline-flex items-center gap-1 rounded-[14px] border p-1 ${isLight ? "border-orange-200 bg-orange-50" : "border-white/10 bg-slate-900/70"}`}>
-              {(["en", "ru", "zh"] as Language[]).map((value) => (
+              {(["en", "ru", "zh", "fa"] as Language[]).map((value) => (
                 <button
                   key={value}
                   type="button"

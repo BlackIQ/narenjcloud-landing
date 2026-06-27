@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Language = "en" | "ru" | "zh";
+type Language = "en" | "ru" | "zh" | "fa";
 type Theme = "dark" | "light";
 
 const content = {
@@ -387,6 +387,121 @@ const content = {
     call: "电话",
     console: "控制台",
   },
+  fa: {
+    badge: "سرویس ابری مقیاس پذیر در ایران و جهان",
+    title: "سرویس ابری برای کارایی بالا",
+    description:
+      "نمونه هایی را در چند ثانیه با سفارشی سازی کامل راه اندازی کنید. از توزیع های Linux، برنامه های از پیش نصب شده و منابع انعطاف پذیر انتخاب کنید. سرویس ابری و Exchange بر تقاضا دسترس پذیر هستند.",
+    ctaPrimary: "ورود به کنسول",
+    ctaSecondary: "مشاهده قیمت",
+    navServices: "خدمات",
+    navAbout: "درباره ما",
+    navContact: "تماس",
+    featureTitle: "به روش خود استقرار دهید",
+    features: [
+      {
+        title: "استقرار فوری",
+        description: "نمونه جدید را در کمتر از 60 ثانیه با سیستم عامل و پیکربندی دلخواه راه اندازی کنید.",
+      },
+      {
+        title: "سفارشی سازی کامل",
+        description: "هسته های CPU، حجم RAM، نوع و اندازه فضای ذخیره سازی و سرعت پیوند را انتخاب کنید.",
+      },
+      {
+        title: "برنامه های از پیش نصب شده",
+        description: "GitLab، Gitea، OwnCloud، NextCloud و موارد دیگر بدون نیاز به تنظیم دستی آماده اند.",
+      },
+      {
+        title: "پشتیبانی 24/7",
+        description: "تیم زیرساخت ما همیشه برای کمک به مقیاس گذاری و حل مسائل آماده است.",
+      },
+    ],
+    osTitle: "سیستم های عامل",
+    osDescription: "از توزیع های Linux پیشرو بهینه شده برای عملکرد و پایداری انتخاب کنید",
+    osImages: [
+      { name: "Ubuntu", versions: "22.04 LTS, 24.04 LTS" },
+      { name: "Fedora", versions: "39, 40, 41" },
+      { name: "Rocky", versions: "8, 9" },
+      { name: "AlmaLinux", versions: "8, 9" },
+      { name: "Alpine", versions: "3.18, 3.19" },
+      { name: "CentOS", versions: "7, Stream 9" },
+    ],
+    appTitle: "برنامه های از پیش نصب شده",
+    appDescription: "محیط توسعه آماده را با برنامه های محبوب دریافت کنید",
+    applications: [
+      {
+        name: "GitLab",
+        description: "پلتفرم DevOps کامل با CI/CD، مخزن ها و ردیابی مسائل",
+      },
+      {
+        name: "Gitea",
+        description: "سرویس Git خودمیزبان سبک، ایده آل برای تیم های کوچکتر",
+      },
+      {
+        name: "OwnCloud",
+        description: "راه حل ذخیره سازی و هماهنگی فایل های خصوصی",
+      },
+      {
+        name: "NextCloud",
+        description: "پلتفرم همکاری پلی فیچر با ذخیره سازی، تقویم و مخاطبین",
+      },
+      {
+        name: "Docker",
+        description: "محیط اجرایی کانتینر برای استقرار برنامه ها",
+      },
+      {
+        name: "Kubernetes",
+        description: "ارکسترشن کانتینر در مقیاس بزرگ با پلتفرم استاندارد صنعت",
+      },
+      {
+        name: "PostgreSQL",
+        description: "سیستم مدیریت پایگاه داده رابطه ای سطح سازمانی",
+      },
+      {
+        name: "MongoDB",
+        description: "پایگاه داده NoSQL برای ذخیره سازی انعطاف پذیر و مقیاس پذیر",
+      },
+    ],
+    customTitle: "سرویس سرور ایده آل خود را بسازید",
+    customDescription: "کنترل کامل بر زیرساخت شما",
+    customOptions: [
+      {
+        label: "پردازنده",
+        description: "1 هسته تا 32+ هسته",
+        icon: "⚙️",
+      },
+      {
+        label: "حافظه",
+        description: "512MB تا 256GB",
+        icon: "💾",
+      },
+      {
+        label: "ذخیره سازی",
+        description: "SSD یا HDD، 10GB تا 2TB+",
+        icon: "💿",
+      },
+      {
+        label: "پیوند",
+        description: "1Gbps تا 25Gbps",
+        icon: "🔗",
+      },
+    ],
+    windowsTitle: "Windows و Exchange سطح سازمانی",
+    windowsDescription: "برای بارهای کاری نیازمند Windows Server یا Microsoft Exchange",
+    windowsFeatures: [
+      "Windows Server 2016, 2019, 2022",
+      "میزبانی Microsoft Exchange Server",
+      "پشتیبانی Active Directory",
+      "دسترسی اداری کامل",
+      "گزینه های پشتیبانی و بازیابی فاجعه",
+    ],
+    ctaHeading: "آماده آغاز کار؟",
+    ctaSubheading: "نمونه اول خود را در دقایق استقرار دهید",
+    contactTitle: "سوالی دارید؟",
+    email: "ایمیل",
+    call: "تماس",
+    console: "کنسول",
+  },
 };
 
 export default function CloudServersPage() {
@@ -464,7 +579,7 @@ export default function CloudServersPage() {
           </nav>
           <div className="flex flex-wrap items-center gap-2">
             <div className={`inline-flex items-center gap-1 rounded-[14px] border p-1 ${isLight ? "border-orange-200 bg-orange-50" : "border-white/10 bg-slate-900/70"}`}>
-              {(["en", "ru", "zh"] as Language[]).map((value) => (
+              {(["en", "ru", "zh", "fa"] as Language[]).map((value) => (
                 <button
                   key={value}
                   type="button"
