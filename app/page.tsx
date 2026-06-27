@@ -22,15 +22,15 @@ const content = {
       { label: "Hardware", value: "FortiGate + HPE G10" },
     ],
     whyTitle: "Why organizations choose NarenjCloud",
-    feature1Title: "FortiGate firewalls",
+    feature1Title: "Next-Generation Firewall Security",
     feature1Text: "Security-first architecture for critical workloads, routed environments, and protected traffic flows.",
-    feature2Title: "Cisco switches",
+    feature2Title: "Enterprise Switching Infrastructure",
     feature2Text: "Cisco Nexus series switching for reliable, scalable, and high-performance datacenter connectivity.",
-    feature3Title: "MikroTik routers",
+    feature3Title: "Advanced Routing Platforms",
     feature3Text: "CCR2216 series routers for advanced routing, flexibility, and dependable network edge deployments.",
-    feature4Title: "1G/10G/25G uplinks",
+    feature4Title: "1G to 25G Uplink",
     feature4Text: "Flexible connectivity with 1G, 10G, and 25G uplinks for different performance and capacity needs.",
-    feature5Title: "HPE ProLiant servers",
+    feature5Title: "High-Performance Server Platforms",
     feature5Text: "Enterprise-grade HPE ProLiant Gen11 and Gen10 servers for workloads that require high performance, flexibility, and dependable uptime.",
     servicesTitle: "Infrastructure that moves with your business.",
     services: [
@@ -87,15 +87,15 @@ const content = {
       { label: "Оборудование", value: "FortiGate + HPE G10" },
     ],
     whyTitle: "Почему компании выбирают NarenjCloud",
-    feature1Title: "Межсетевые экраны FortiGate",
+    feature1Title: "Современная защитa сети",
     feature1Text: "Архитектура с акцентом на безопасность для критически важных нагрузок, маршрутизации и защищённого трафика.",
-    feature2Title: "Коммутаторы Cisco",
+    feature2Title: "Корпоративная коммутация",
     feature2Text: "Коммутаторы серии Cisco Nexus для надёжной, масштабируемой и высокопроизводительной связности дата-центров.",
-    feature3Title: "Маршрутизаторы MikroTik",
+    feature3Title: "Передовые маршрутизаторы",
     feature3Text: "Маршрутизаторы серии CCR2216 для продвинутой маршрутизации, гибкости и надёжной работы на границе сети.",
-    feature4Title: "1G/10G/25G uplinks",
+    feature4Title: "Волоконные uplink от 1G до 25G",
     feature4Text: "Гибкая связность с uplinks на 1G, 10G и 25G для разных задач по производительности и ёмкости.",
-    feature5Title: "Серверы HPE ProLiant",
+    feature5Title: "Платформы серверов HPE ProLiant",
     feature5Text: "Корпоративные серверы HPE ProLiant Gen11 и Gen10 для рабочих нагрузок, которым нужна высокая производительность, гибкость и надёжная доступность.",
     servicesTitle: "Инфраструктура, которая движется вместе с вашим бизнесом.",
     services: [
@@ -152,15 +152,15 @@ const content = {
       { label: "硬件平台", value: "FortiGate + HPE G10" },
     ],
     whyTitle: "为何企业选择 NarenjCloud",
-    feature1Title: "FortiGate 防火墙",
+    feature1Title: "下一代防火墙安全",
     feature1Text: "面向关键业务与网络路由场景的安全优先架构。",
-    feature2Title: "Cisco 交换机",
+    feature2Title: "企业级交换基础设施",
     feature2Text: "Cisco Nexus 系列交换机，提供稳定、可扩展且高性能的数据中心连接。",
-    feature3Title: "MikroTik 路由器",
+    feature3Title: "高级路由平台",
     feature3Text: "CCR2216 系列路由器，适用于高级路由、灵活部署和可靠的边缘网络场景。",
-    feature4Title: "1G/10G/25G 上联链路",
+    feature4Title: "1G 至 25G 上联链路",
     feature4Text: "提供 1G、10G 和 25G 上联链路，满足不同容量和性能需求。",
-    feature5Title: "HPE ProLiant 服务器",
+    feature5Title: "高性能服务器平台",
     feature5Text: "HPE ProLiant Gen11 与 Gen10 企业级服务器，适用于需要高性能、灵活性和稳定可用性的业务场景。",
     servicesTitle: "与业务同步发展的基础设施。",
     services: [
@@ -449,6 +449,9 @@ export default function Home() {
                 </span>
                 <span className={isLight ? "text-orange-700" : "text-orange-300"}>→</span>
               </a>
+            </div>
+            <div className={`mt-6 border-t pt-4 text-sm ${isLight ? "border-slate-200 text-slate-600" : "border-white/10 text-slate-400"}`}>
+              CEO: <a href="https://amirhossein.info" target="_blank" rel="noreferrer" className="font-semibold text-orange-500 hover:text-orange-400">Amirhossein Mohammadi</a>
             </div>
           </section>
         </main>
